@@ -1,37 +1,38 @@
 <h1 align="center">
-  <img src="https://avatars1.githubusercontent.com/u/29598503?v=3&s=256" alt="[Project]">
+  <img src="gradle.png" alt="gradle">
   <br />
-  [Project]
+  gradle
 </h1>
 
-<p align="center"><b>This is the snap for [Project]</b>, <i>“Single-line elevator pitch for your amazing snap”</i>. It works on Ubuntu, Fedora, Debian, and other major Linux
+<p align="center"><b>This is the snap for gradle</b>, <i>“an open-source build automation tool”</i>. It works on Ubuntu, Fedora, Debian, and other major Linux
 distributions.</p>
 
 <!-- Uncomment and modify this when you are provided a build status badge
 <p align="center">
-<a href="https://build.snapcraft.io/user/snapcrafters/fork-and-rename-me"><img src="https://build.snapcraft.io/badge/snapcrafters/fork-and-rename-me.svg" alt="Snap Status"></a>
+<a href="https://build.snapcraft.io/user/snapcrafters/gradle-snap"><img src="https://build.snapcraft.io/badge/snapcrafters/gradle-snap.svg" alt="Snap Status"></a>
 </p>
 -->
 
 <!-- Uncomment and modify this when you have a screenshot
-![my-snap-name](screenshot.png?raw=true "my-snap-name")
+![my-snap-name](screenshot.png?raw=true "gradle")
 -->
 
 <p align="center">Published for <img src="https://raw.githubusercontent.com/anythingcodes/slack-emoji-for-techies/gh-pages/emoji/tux.png" align="top" width="24" /> with 💝 by Snapcrafters</p>
 
 ## Install
 
-    sudo snap install my-snap-name
+    sudo snap install gradle --classic
 
 <!-- Uncomment and modify this when your snap is available on the store
-[![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-white.svg)](https://snapcraft.io/my-snap-name)
+[![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-white.svg)](https://snapcraft.io/gradle)
 -->
 
 ([Don't have snapd installed?](https://snapcraft.io/docs/core/install))
 
 ## Remaining tasks
+
 <!-- Uncomment and modify this when you have a screenshot
-![my-snap-name](screenshot.png?raw=true "my-snap-name")
+![gradle](screenshot.png?raw=true "gradle")
 -->
 
 Snapcrafters ([join us](https://forum.snapcraft.io/t/join-snapcrafters/1325)) 
@@ -40,9 +41,9 @@ the [snapcraft.yaml](https://github.com/snapcrafters/fork-and-rename-me/blob/mas
 upstream so [Project] can authoritatively publish future releases.
 
   - [x] Click the green "Use this template" button above to create a new repository based on this template
-  - [ ] Give the newly created repository a sensible name, like `godzilla-snap` if you're snapping the Godzilla software
-  - [ ] Update the description of the repository
-  - [ ] Update logos and references to `[Project]` and `[my-snap-name]`
+  - [X] Give the newly created repository a sensible name, like `godzilla-snap` if you're snapping the Godzilla software
+  - [X] Update the description of the repository
+  - [X] Update logos and references to `[Project]` and `[my-snap-name]`
   - [ ] Create a snap that runs in `devmode`
   - [ ] Register the snap in the store, **using the preferred upstream name**
   - [ ] Add a screenshot to this `README.md`
