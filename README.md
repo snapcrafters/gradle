@@ -13,9 +13,7 @@ distributions.</p>
 </p>
 -->
 
-<!-- Uncomment and modify this when you have a screenshot
-![my-snap-name](screenshot.png?raw=true "gradle")
--->
+![gradle](screenshot.png?raw=true "gradle")
 
 <p align="center">Published for <img src="https://raw.githubusercontent.com/anythingcodes/slack-emoji-for-techies/gh-pages/emoji/tux.png" align="top" width="24" /> with 💝 by Snapcrafters</p>
 
@@ -31,9 +29,7 @@ distributions.</p>
 
 ## Remaining tasks
 
-<!-- Uncomment and modify this when you have a screenshot
 ![gradle](screenshot.png?raw=true "gradle")
--->
 
 Snapcrafters ([join us](https://forum.snapcraft.io/t/join-snapcrafters/1325)) 
 are working to land snap install documentation and
@@ -46,7 +42,7 @@ upstream so [Project] can authoritatively publish future releases.
   - [X] Update logos and references to `[Project]` and `[my-snap-name]`
   - [ ] Create a snap that runs in `devmode`
   - [ ] Register the snap in the store, **using the preferred upstream name**
-  - [ ] Add a screenshot to this `README.md`
+  - [X] Add a screenshot to this `README.md`
   - [ ] Publish the `devmode` snap in the Snap store edge channel
   - [ ] Add install instructions to this `README.md`
   - [ ] Update snap store metadata, icons and screenshots
@@ -70,12 +66,9 @@ upstream so [Project] can authoritatively publish future releases.
 
 If you have any questions, [post in the Snapcraft forum](https://forum.snapcraft.io).
 
-<!--
-## The Snapcrafters
-
-| [![Your Name](https://gravatar.com/avatar/bc0bced65e963eb5c3a16cab8b004431/?s=128)](https://github.com/yourname/) |
+| [![Alper Kanat](https://gravatar.com/avatar/ef468cdb9947165b09d2afae24d6491c/?s=128)](https://github.com/tunix/) |
 | :---: |
-| [Your Name](https://github.com/yourname/) |
+| [Alper Kanat](https://github.com/tunix/) |
 --> 
 
 <!-- Uncomment and modify this when you have upstream contacts
