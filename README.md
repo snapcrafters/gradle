@@ -69,7 +69,6 @@ If you have any questions, [post in the Snapcraft forum](https://forum.snapcraft
 | [![Alper Kanat](https://gravatar.com/avatar/ef468cdb9947165b09d2afae24d6491c/?s=128)](https://github.com/tunix/) |
 | :---: |
 | [Alper Kanat](https://github.com/tunix/) |
---> 
 
 <!-- Uncomment and modify this when you have upstream contacts
 ## Upstream
