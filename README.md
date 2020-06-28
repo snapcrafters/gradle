@@ -19,7 +19,7 @@ distributions.</p>
 
 ## Install
 
-    sudo snap install gradle --classic
+    sudo snap install gradle
 
 <!-- Uncomment and modify this when your snap is available on the store
 [![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-white.svg)](https://snapcraft.io/gradle)
@@ -31,7 +31,7 @@ distributions.</p>
 
 ![gradle](screenshot.png?raw=true "gradle")
 
-Snapcrafters ([join us](https://forum.snapcraft.io/t/join-snapcrafters/1325)) 
+Snapcrafters ([join us](https://forum.snapcraft.io/t/join-snapcrafters/1325))
 are working to land snap install documentation and
 the [snapcraft.yaml](https://github.com/snapcrafters/fork-and-rename-me/blob/master/snap/snapcraft.yaml)
 upstream so [Project] can authoritatively publish future releases.
@@ -40,7 +40,7 @@ upstream so [Project] can authoritatively publish future releases.
   - [X] Give the newly created repository a sensible name, like `godzilla-snap` if you're snapping the Godzilla software
   - [X] Update the description of the repository
   - [X] Update logos and references to `[Project]` and `[my-snap-name]`
-  - [ ] Create a snap that runs in `devmode`
+  - [X] Create a snap that runs in `devmode`
   - [ ] Register the snap in the store, **using the preferred upstream name**
   - [X] Add a screenshot to this `README.md`
   - [ ] Publish the `devmode` snap in the Snap store edge channel
@@ -58,7 +58,7 @@ upstream so [Project] can authoritatively publish future releases.
   - [ ] Post an announcement in the [Snapcraft Forum](https://forum.snapcraft.io) - [link]()
   - [ ] Submit a pull request or patch upstream that adds snap install documentation - [link]()
   - [ ] Submit a pull request or patch upstream that adds the `snapcraft.yaml` and any required assets/launchers - [link]()
-  - [ ] Add upstream contact information to the `README.md`  
+  - [ ] Add upstream contact information to the `README.md`
   - If upstream accept the PR:
     - [ ] Request upstream create a Snap store account
     - [ ] Contact the Snap Advocacy team to request the snap be transferred to upstream

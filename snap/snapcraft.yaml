@@ -14,7 +14,7 @@ description: |
   integration servers including Eclipse, IntelliJ, and Jenkins.
 
 grade: stable
-confinement: classic
+confinement: devmode
 
 architectures: [s390x, ppc64el, arm64, armhf, amd64, i386]
 
