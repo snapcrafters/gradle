@@ -1,6 +1,6 @@
 name: gradle
 base: core18
-version: "6.6.1"
+version: "6.7.1"
 summary: An open-source build automation tool
 license: Apache-2.0
 description: |
@@ -38,7 +38,7 @@ parts:
 
   gradle:
     plugin: nil
-    source: https://services.gradle.org/distributions/gradle-6.6.1-bin.zip
+    source: https://services.gradle.org/distributions/gradle-6.7.1-bin.zip
     override-build: |
       mkdir -p $SNAPCRAFT_PART_INSTALL/opt
       mv $SNAPCRAFT_PART_BUILD/gradle-$SNAPCRAFT_PROJECT_VERSION $SNAPCRAFT_PART_INSTALL/opt/gradle
