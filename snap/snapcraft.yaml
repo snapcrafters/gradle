@@ -41,7 +41,7 @@ parts:
     plugin: nil
     source: https://services.gradle.org/distributions/gradle-6.8.3-bin.zip
     override-build: |
-      version=$($SNAPCRAFT_PART_SRC/gradle-*/bin/gradle -v|awk '/Gradle/{print $2}')
+      version=$($SNAPCRAFT_PART_SRC/gradle-*/bin/gradle -qv|awk '/Gradle/{print $2}')
 
       snapcraftctl set-version $version
       snapcraftctl build
