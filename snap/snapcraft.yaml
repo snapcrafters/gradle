@@ -31,13 +31,17 @@ parts:
   java:
     plugin: nil
     build-packages:
+      - openjdk-8-jdk-headless
+    stage-packages:
       - ca-certificates
       - ca-certificates-java
       - openjdk-8-jdk-headless
-    stage-packages:
-      - openjdk-8-jdk-headless
+    prime:
+      - -usr/lib/jvm/java-*/lib/security/cacerts
+      - -usr/lib/jvm/java-*/jre/lib/security/cacerts
 
   gradle:
+    after: [java]
     plugin: nil
     source: https://services.gradle.org/distributions/gradle-6.8.3-bin.zip
     override-build: |
