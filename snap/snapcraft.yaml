@@ -4,6 +4,7 @@ adopt-info: gradle
 base: core20
 grade: stable
 confinement: classic
+compression: lzo
 
 summary: An open-source build automation tool
 license: Apache-2.0
