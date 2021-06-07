@@ -25,7 +25,7 @@ apps:
       LANG: C.UTF-8
       LANGUAGE: C.UTF-8
       LC_ALL: C.UTF-8
-      JAVA_HOME: $SNAP/usr/lib/jvm/java-11-openjdk-$SNAP_ARCH
+      JAVA_HOME: $SNAP/usr/lib/jvm/default-java
       GRADLE_USER_HOME: /home/$USER/.gradle
 
 parts:
@@ -34,12 +34,11 @@ parts:
     build-packages:
       - openjdk-11-jdk-headless
     stage-packages:
-      - ca-certificates
       - ca-certificates-java
       - openjdk-11-jdk-headless
-    prime:
-      - -usr/lib/jvm/java-*/lib/security/cacerts
-      - -usr/lib/jvm/java-*/jre/lib/security/cacerts
+    override-build: |
+      rm $SNAPCRAFT_PART_INSTALL/usr/lib/jvm/default-java/lib/security/cacerts
+      cp /etc/ssl/certs/java/cacerts $SNAPCRAFT_PART_INSTALL/usr/lib/jvm/default-java/lib/security/cacerts
 
   gradle:
     after: [java]
