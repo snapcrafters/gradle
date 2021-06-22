@@ -42,7 +42,7 @@ parts:
   gradle:
     after: [java]
     plugin: nil
-    source: https://services.gradle.org/distributions/gradle-7.0.2-bin.zip
+    source: https://services.gradle.org/distributions/gradle-7.1-bin.zip
     override-build: |
       version=$($SNAPCRAFT_PART_SRC/gradle-*/bin/gradle -qv|awk '/Gradle/{print $2}')
 
