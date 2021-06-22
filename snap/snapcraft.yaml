@@ -34,11 +34,10 @@ parts:
     build-packages:
       - openjdk-16-jdk-headless
     stage-packages:
-      - ca-certificates-java
       - openjdk-16-jdk-headless
     override-build: |
-      rm $SNAPCRAFT_PART_INSTALL/usr/lib/jvm/default-java/lib/security/cacerts
-      cp /etc/ssl/certs/java/cacerts $SNAPCRAFT_PART_INSTALL/usr/lib/jvm/default-java/lib/security/cacerts
+      rm $SNAPCRAFT_PART_INSTALL/usr/lib/jvm/java-16-openjdk-${SNAPCRAFT_TARGET_ARCH}/lib/security/cacerts
+      cp /etc/default/cacerts $SNAPCRAFT_PART_INSTALL/usr/lib/jvm/java-16-openjdk-${SNAPCRAFT_TARGET_ARCH}/lib/security/cacerts
 
   gradle:
     after: [java]
