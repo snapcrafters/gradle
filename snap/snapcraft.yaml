@@ -25,7 +25,7 @@ apps:
       LANG: C.UTF-8
       LANGUAGE: C.UTF-8
       LC_ALL: C.UTF-8
-      JAVA_HOME: $SNAP/usr/lib/jvm/default-java
+      JAVA_HOME: $SNAP/usr/lib/jvm/java-1.16.0-openjdk-amd64
       GRADLE_USER_HOME: /home/$USER/.gradle
 
 parts:
