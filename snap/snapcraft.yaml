@@ -38,6 +38,7 @@ parts:
     override-build: |
       rm $SNAPCRAFT_PART_INSTALL/usr/lib/jvm/java-16-openjdk-${SNAPCRAFT_TARGET_ARCH}/lib/security/cacerts
       cp /etc/default/cacerts $SNAPCRAFT_PART_INSTALL/usr/lib/jvm/java-16-openjdk-${SNAPCRAFT_TARGET_ARCH}/lib/security/cacerts
+      chmod 644 $SNAPCRAFT_PART_INSTALL/usr/lib/jvm/java-16-openjdk-${SNAPCRAFT_TARGET_ARCH}/lib/security/cacerts
 
   gradle:
     after: [java]
