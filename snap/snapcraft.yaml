@@ -1,7 +1,7 @@
 name: gradle
 adopt-info: gradle
 
-base: core20
+base: core22
 grade: stable
 confinement: classic
 compression: lzo
@@ -25,25 +25,29 @@ apps:
       LANG: C.UTF-8
       LANGUAGE: C.UTF-8
       LC_ALL: C.UTF-8
-      JAVA_HOME: $SNAP/usr/lib/jvm/java-1.16.0-openjdk-$SNAP_ARCH
+      JAVA_HOME: $SNAP/usr/lib/jvm/java-1.21.0-openjdk-$SNAP_ARCH
       GRADLE_USER_HOME: /home/$USER/.gradle
 
 parts:
   java:
     plugin: nil
+    build-attributes:
+      - enable-patchelf
     build-packages:
-      - openjdk-16-jdk-headless
+      - openjdk-21-jdk-headless
     stage-packages:
-      - openjdk-16-jdk-headless
+      - libharfbuzz0b
+      - libasound2
+      - openjdk-21-jdk-headless
     override-build: |
-      rm $SNAPCRAFT_PART_INSTALL/usr/lib/jvm/java-16-openjdk-${SNAPCRAFT_TARGET_ARCH}/lib/security/cacerts
-      cp /etc/default/cacerts $SNAPCRAFT_PART_INSTALL/usr/lib/jvm/java-16-openjdk-${SNAPCRAFT_TARGET_ARCH}/lib/security/cacerts
-      chmod 644 $SNAPCRAFT_PART_INSTALL/usr/lib/jvm/java-16-openjdk-${SNAPCRAFT_TARGET_ARCH}/lib/security/cacerts
+      rm $SNAPCRAFT_PART_INSTALL/usr/lib/jvm/java-21-openjdk-${SNAPCRAFT_TARGET_ARCH}/lib/security/cacerts
+      cp /etc/default/cacerts $SNAPCRAFT_PART_INSTALL/usr/lib/jvm/java-21-openjdk-${SNAPCRAFT_TARGET_ARCH}/lib/security/cacerts
+      chmod 644 $SNAPCRAFT_PART_INSTALL/usr/lib/jvm/java-21-openjdk-${SNAPCRAFT_TARGET_ARCH}/lib/security/cacerts
 
   gradle:
     after: [java]
     plugin: nil
-    source: https://services.gradle.org/distributions/gradle-7.4.1-bin.zip
+    source: https://services.gradle.org/distributions/gradle-8.10.2-bin.zip
     override-build: |
       version=$($SNAPCRAFT_PART_SRC/gradle-*/bin/gradle -qv|awk '/Gradle/{print $2}')
 
