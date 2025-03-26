@@ -20,13 +20,13 @@ description: |
 
 apps:
   gradle:
-    command: opt/gradle/bin/gradle
+    command: cli.sh
     environment:
       LANG: C.UTF-8
       LANGUAGE: C.UTF-8
       LC_ALL: C.UTF-8
-      JAVA_HOME: $SNAP/usr/lib/jvm/java-1.21.0-openjdk-$SNAP_ARCH
-      GRADLE_USER_HOME: /home/$USER/.gradle
+      SNAP_JAVA_HOME: $SNAP/usr/lib/jvm/java-1.21.0-openjdk-$SNAP_ARCH
+      SNAP_GRADLE_USER_HOME: /home/$USER/.gradle
 
 parts:
   java:
@@ -56,3 +56,10 @@ parts:
 
       mkdir -p $SNAPCRAFT_PART_INSTALL/opt
       mv $SNAPCRAFT_PART_BUILD/gradle-* $SNAPCRAFT_PART_INSTALL/opt/gradle
+
+  launcher:
+    plugin: nil
+    source: .
+    override-build: |
+      cp cli.sh ${CRAFT_PART_INSTALL}/
+      craftctl default
