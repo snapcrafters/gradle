@@ -4,10 +4,11 @@ on:
   pull_request:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   snap-build:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -16,16 +17,20 @@ jobs:
       - name: Build snap
         id: gradle-snap
         uses: snapcore/action-build@v1
+      - uses: diddlesnaps/snapcraft-review-action@v1
+        with:
+          snap: ${{ steps.gradle-snap.outputs.snap }}
+          isClassic: 'true'
       - name: Upload Snap to workflow artifacts
         id: upload-artifact
         uses: actions/upload-artifact@v4
         with:
           name: gradle-snap
-          path: ${{ steps.gradle-snap.snap }}
+          path: ${{ steps.gradle-snap.outputs.snap }}
 
   snap-tests:
     needs: [snap-build]
-
+    runs-on: ubuntu-latest
     steps:
       - name: Cleanup job workspace
         run: |
@@ -41,7 +46,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: gradle-snap
-          path: gradle-snap
+          path: .
 
       - uses: actions/checkout@v4
         with:
