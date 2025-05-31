@@ -15,4 +15,4 @@ prepare: |
   set -ex
   # install gradle snap
   snap install --dangerous --classic gradle_*_amd64.snap
-  apt-get update && apt-get install -y openjdk-17
+  apt-get update && apt-get install -y openjdk-17-jdk-headless
