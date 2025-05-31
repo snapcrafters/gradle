@@ -1,0 +1,12 @@
+summary: Check that snap environment variables work
+
+execute: |
+  set -ex
+
+  gradle -q printUserHome | grep "Gradle User Home: /home/root/.gradle"
+  export GRADLE_USER_HOME=/home/root/test
+  gradle -q printUserHome | grep "Gradle User Home: /home/root/test"
+
+  gradle -version | grep "Launcher JVM:  21.0."
+  export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64/
+  gradle -version | grep "Launcher JVM:  17.0."

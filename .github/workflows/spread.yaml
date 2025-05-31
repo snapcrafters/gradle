@@ -1,0 +1,71 @@
+name: Spread
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  snap-build:
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Build snap
+        id: gradle-snap
+        uses: snapcore/action-build@v1
+      - name: Upload Snap to workflow artifacts
+        id: upload-artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: gradle-snap
+          path: ${{ steps.gradle-snap.snap }}
+
+  snap-tests:
+    needs: [snap-build]
+
+    steps:
+      - name: Cleanup job workspace
+        run: |
+          rm -rf "${{ github.workspace }}"
+          mkdir "${{ github.workspace }}"
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          submodules: true
+
+      - name: Download snap artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: gradle-snap
+          path: gradle-snap
+
+      - uses: actions/checkout@v4
+        with:
+          repository: snapcore/spread
+          path: _spread
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '>=1.17.0'
+
+      - name: Install LXD
+        uses: canonical/setup-lxd@v0.1.2
+        with:
+            channel: 5.21/stable
+
+      - name: Run spread
+        run: |
+          (cd _spread/cmd/spread && go build)
+          _spread/cmd/spread/spread
+
+      - name: Discard spread workers
+        if: always()
+        run: |
+          shopt -s nullglob
+          for r in .spread-reuse.*.yaml; do
+            spread -discard -reuse-pid="$(echo "$r" | grep -o -E '[0-9]+')"
+          done

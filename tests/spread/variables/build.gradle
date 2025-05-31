@@ -1,0 +1,5 @@
+task printUserHome {
+    doLast {
+        println "Gradle User Home: ${gradle.gradleUserHomeDir}"
+    }
+}
