@@ -1,0 +1,18 @@
+project: gradle-snap
+
+backends:
+  lxd:
+    systems:
+      - ubuntu-24.04
+
+path: /home/test
+
+suites:
+  tests/spread/:
+    summary: integration tests
+
+prepare: |
+  set -ex
+  # install gradle snap
+  snap install --dangerous --classic gradle_*_amd64.snap
+  apt-get update && apt-get install -y openjdk-17-jdk-headless

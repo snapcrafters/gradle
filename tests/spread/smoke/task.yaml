@@ -1,0 +1,6 @@
+summary: check that gradle works
+
+execute: |
+  set -ex
+  gradle -version | grep Gradle
+  gradle -q printUserHome | grep "Gradle User Home: /home/root/.gradle"
