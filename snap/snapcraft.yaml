@@ -36,13 +36,12 @@ parts:
     build-packages:
       - openjdk-21-jdk-headless
     stage-packages:
-      - libharfbuzz0b
-      - libasound2
       - openjdk-21-jdk-headless
     override-build: |
-      rm $SNAPCRAFT_PART_INSTALL/usr/lib/jvm/java-21-openjdk-${SNAPCRAFT_TARGET_ARCH}/lib/security/cacerts
-      cp /etc/default/cacerts $SNAPCRAFT_PART_INSTALL/usr/lib/jvm/java-21-openjdk-${SNAPCRAFT_TARGET_ARCH}/lib/security/cacerts
-      chmod 644 $SNAPCRAFT_PART_INSTALL/usr/lib/jvm/java-21-openjdk-${SNAPCRAFT_TARGET_ARCH}/lib/security/cacerts
+      rm $CRAFT_PART_INSTALL/usr/lib/jvm/java-21-openjdk-${CRAFT_ARCH_BUILD_FOR}/lib/security/cacerts
+      cp /etc/ssl/certs/java/cacerts $SNAPCRAFT_PART_INSTALL/usr/lib/jvm/java-21-openjdk-${CRAFT_ARCH_BUILD_FOR}/lib/security/cacerts
+      chmod 644 $SNAPCRAFT_PART_INSTALL/usr/lib/jvm/java-21-openjdk-${CRAFT_ARCH_BUILD_FOR}/lib/security/cacerts
+      craftctl default
 
   gradle:
     after: [java]

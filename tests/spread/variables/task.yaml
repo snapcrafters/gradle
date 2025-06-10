@@ -7,6 +7,8 @@ execute: |
   export GRADLE_USER_HOME=/home/root/test
   gradle -q printUserHome | grep "Gradle User Home: /home/root/test"
 
+  # install additional openjdk to check the launchers
+  apt-get update && apt-get install -y openjdk-17-jdk-headless
   gradle -version | grep "Launcher JVM:  21.0."
   export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64/
   gradle -version | grep "Launcher JVM:  17.0."
