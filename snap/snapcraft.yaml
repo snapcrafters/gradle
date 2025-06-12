@@ -39,8 +39,7 @@ parts:
       - openjdk-21-jdk-headless
     override-build: |
       JAVA_HOME="$(dirname $(dirname $(readlink -f $(which java))))"
-      rm ${CRAFT_PART_INSTALL}/${JAVA_HOME}/lib/security/cacerts
-      cp /etc/ssl/certs/java/cacerts ${CRAFT_PART_INSTALL}/${JAVA_HOME}/lib/security/cacerts
+      cp -f /etc/ssl/certs/java/cacerts ${CRAFT_PART_INSTALL}/${JAVA_HOME}/lib/security/cacerts
       chmod 644 ${CRAFT_PART_INSTALL}/${JAVA_HOME}/lib/security/cacerts
       craftctl default
 
