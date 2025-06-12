@@ -38,9 +38,10 @@ parts:
     stage-packages:
       - openjdk-21-jdk-headless
     override-build: |
-      rm $CRAFT_PART_INSTALL/usr/lib/jvm/java-21-openjdk-${CRAFT_ARCH_BUILD_FOR}/lib/security/cacerts
-      cp /etc/ssl/certs/java/cacerts $SNAPCRAFT_PART_INSTALL/usr/lib/jvm/java-21-openjdk-${CRAFT_ARCH_BUILD_FOR}/lib/security/cacerts
-      chmod 644 $SNAPCRAFT_PART_INSTALL/usr/lib/jvm/java-21-openjdk-${CRAFT_ARCH_BUILD_FOR}/lib/security/cacerts
+      JAVA_HOME="$(dirname $(dirname $(readlink -f $(which java))))"
+      rm ${CRAFT_PART_INSTALL}/${JAVA_HOME}/lib/security/cacerts
+      cp /etc/ssl/certs/java/cacerts ${CRAFT_PART_INSTALL}/${JAVA_HOME}/lib/security/cacerts
+      chmod 644 ${CRAFT_PART_INSTALL}/${JAVA_HOME}/lib/security/cacerts
       craftctl default
 
   gradle:
