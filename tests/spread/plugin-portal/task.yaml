@@ -1,0 +1,5 @@
+summary: check that gradle can use plugin portal
+
+execute: |
+  set -ex
+  gradle | grep "BUILD SUCCESSFUL"
